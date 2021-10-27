@@ -40,3 +40,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rspec-rails", "~> 5.0"
 
 gem "pact", "~> 1.60"
+
+gem "httparty", "~> 0.20.0"
