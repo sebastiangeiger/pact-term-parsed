@@ -37,3 +37,6 @@ jobs:
         with:
           name: pacts
           path: spec/pacts/*
+      - name: Verify pacts
+        run: |
+          bundle exec rake pact:verify
