@@ -32,3 +32,8 @@ jobs:
           DISABLE_SPRING: 1
         run: |
           bundle exec rspec
+      - name: Store pacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: pacts
+          path: spec/pacts/*
