@@ -32,7 +32,7 @@ describe AnimalServiceClient, :pact => true do
     before do
       animal_service.given("an alligator exists").
         upon_receiving("a request for an alligators").
-        with(method: :get, path: '/alligators', query: '').
+        with(method: :get, path: '/alligators', query: 'name=Bett').
         will_respond_with(
           status: 200,
           headers: {'Content-Type' => 'application/json'},

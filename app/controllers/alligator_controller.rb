@@ -7,8 +7,9 @@ class AlligatorController < ApplicationController
   end
 
   def index
-    render json: [{
-      name: "Betty"
-    }]
+    json = Array(params[:name]).map do |name|
+      { name: "#{name}y" }
+    end
+    render json: json
   end
 end
