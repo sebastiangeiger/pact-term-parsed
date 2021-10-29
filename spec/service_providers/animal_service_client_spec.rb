@@ -35,7 +35,10 @@ describe AnimalServiceClient, :pact => true do
         with(
           method: :get,
           path: '/alligators',
-          query: 'names%5B%5D=Bett&names%5B%5D=And'
+          query: Pact.term(
+            generate: 'names%5B%5D=Bett&names%5B%5D=And',
+            matcher: /names%5B%5D=Bett&names%5B%5D=And/
+          )
         ).
         will_respond_with(
           status: 200,
