@@ -27,4 +27,22 @@ describe AnimalServiceClient, :pact => true do
 
   end
 
+  describe "get_alligators" do
+
+    before do
+      animal_service.given("an alligator exists").
+        upon_receiving("a request for an alligators").
+        with(method: :get, path: '/alligators', query: '').
+        will_respond_with(
+          status: 200,
+          headers: {'Content-Type' => 'application/json'},
+          body: [{name: 'Betty'}] )
+    end
+
+    it "returns an alligator" do
+      expect(subject.get_alligators).to contain_exactly(Alligator.new('Betty'))
+    end
+
+  end
+
 end

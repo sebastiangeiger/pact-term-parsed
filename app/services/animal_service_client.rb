@@ -8,4 +8,9 @@ class AnimalServiceClient
     name = JSON.parse(self.class.get("/alligator").body)['name']
     Alligator.new(name)
   end
+
+  def get_alligators
+    names = JSON.parse(self.class.get("/alligators").body).map {|json| json['name']}
+    names.map {|name| Alligator.new(name)}
+  end
 end

@@ -5,4 +5,10 @@ class AlligatorController < ApplicationController
       name: "Betty"
     }
   end
+
+  def index
+    render json: [{
+      name: "Betty"
+    }]
+  end
 end
